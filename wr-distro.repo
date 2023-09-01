@@ -1,0 +1,12 @@
+[wr-distro]
+name=Wind River Distro $releasever - $basearch
+#baseurl=http://10.0.2.2:5555/$releasever/Everything/$basearch/os/
+baseurl=http://10.0.2.2:5555/
+#metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+enabled=1
+#metadata_expire=7d
+repo_gpgcheck=0
+type=rpm
+gpgcheck=0
+#gpgkey=file:///usr/share/distribution-gpg-keys/fedora/RPM-GPG-KEY-fedora-$releasever-primary
+skip_if_unavailable=False

@@ -1,0 +1,10 @@
+variables:
+  stream: testing-devel
+  prod: false
+
+releasever: 1
+
+repos:
+  - wr-distro
+
+include: manifests/wr-distro.yaml

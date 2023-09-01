@@ -1,0 +1,18 @@
+# This file is shared by all streams. For a stream-specific change, use
+# image.yaml instead.
+
+# Target disk size in GB.
+size: 10
+
+extra-kargs:
+    # Disable SMT on systems vulnerable to MDS or any similar future issue.
+    - mitigations=auto,nosmt
+
+ignition-network-kcmdline: []
+
+# Optional remote by which to prefix the deployed OSTree ref
+ostree-remote: distro
+
+# opt in to using the `metadata_csum_seed` feature of the ext4 filesystem
+# for the /boot filesystem.
+bootfs_metadata_csum_seed: true

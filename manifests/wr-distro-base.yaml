@@ -1,0 +1,72 @@
+# This file is most of a Wind River Distro like system; it inherits from "distro".
+# Add things in this file which are somewhat "opinionated", not necessarily
+# core functionality.
+
+include:
+#  - ignition-and-ostree.yaml
+#  - file-transfer.yaml
+#  - networking-tools.yaml
+#  - system-configuration.yaml
+#  - user-experience.yaml
+#  - shared-workarounds.yaml
+#  - shared-el9.yaml
+
+conditional-include:
+#  - if: releasever <= 36
+#    include: fallback-hostname.yaml
+
+ostree-layers:
+  - overlay/05core
+#  - overlay/08nouveau
+#  - overlay/09misc
+#  - overlay/20platform-chrony
+#  - overlay/25azure-udev-rules
+
+# Be minimal
+recommends: false
+
+ignore-removed-users:
+  - root
+ignore-removed-groups:
+  - root
+etc-group-members:
+  - wheel
+  - sudo
+  - systemd-journal
+  - adm
+
+check-passwd:
+  type: "file"
+  filename: "passwd"
+check-groups:
+  type: "file"
+  filename: "group"
+
+default-target: multi-user.target
+
+selinux: false
+tmp-is-dir: true
+
+# we can drop this when it's the rpm-ostree default
+rpmdb: sqlite
+
+# ⚠⚠⚠ ONLY TEMPORARY HACKS ALLOWED HERE; ALL ENTRIES NEED TRACKER LINKS ⚠⚠⚠
+# See also the version of this in wr-distro.yaml
+postprocess:
+
+# Packages listed here should be specific to Wind River Distro (as in not yet
+# available in RHCOS or not desired in RHCOS). All other packages should go
+# into one of the sub-manifests listed at the top.
+packages:
+
+#packages-x86_64:
+
+#packages-aarch64:
+
+# See https://github.com/coreos/bootupd
+arch-include:
+  x86_64: bootupd.yaml
+#  aarch64: bootupd.yaml
+
+remove-from-packages:
+
