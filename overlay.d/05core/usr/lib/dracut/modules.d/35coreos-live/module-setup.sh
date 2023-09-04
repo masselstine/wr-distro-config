@@ -14,7 +14,9 @@ install_and_enable_unit() {
 
 installkernel() {
     # we do loopmounts
-    instmods -c loop
+    # MAA drop since we have loop as a builtin
+    # instmods -c loop
+    :
 }
 
 install() {

@@ -3,12 +3,12 @@
 # core functionality.
 
 include:
-#  - ignition-and-ostree.yaml
-#  - file-transfer.yaml
-#  - networking-tools.yaml
-#  - system-configuration.yaml
-#  - user-experience.yaml
-#  - shared-workarounds.yaml
+  - ignition-and-ostree.yaml
+  - file-transfer.yaml
+  - networking-tools.yaml
+  - system-configuration.yaml
+  - user-experience.yaml
+  - shared-workarounds.yaml
 #  - shared-el9.yaml
 
 conditional-include:
@@ -17,10 +17,10 @@ conditional-include:
 
 ostree-layers:
   - overlay/05core
-#  - overlay/08nouveau
-#  - overlay/09misc
-#  - overlay/20platform-chrony
-#  - overlay/25azure-udev-rules
+  - overlay/08nouveau
+  - overlay/09misc
+  - overlay/20platform-chrony
+  - overlay/25azure-udev-rules
 
 # Be minimal
 recommends: false
@@ -44,8 +44,8 @@ check-groups:
 
 default-target: multi-user.target
 
+# Turn off for now to get the POC done
 selinux: false
-tmp-is-dir: true
 
 # we can drop this when it's the rpm-ostree default
 rpmdb: sqlite
@@ -69,4 +69,3 @@ arch-include:
 #  aarch64: bootupd.yaml
 
 remove-from-packages:
-

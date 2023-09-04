@@ -10,6 +10,9 @@ add-commit-metadata:
 
 include: wr-distro-base.yaml
 
+ostree-layers:
+  - overlay/15fcos
+
 automatic-version-prefix: "${releasever}.<date:%Y%m%d>.dev"
 mutate-os-release: "${releasever}"
 
@@ -34,23 +37,16 @@ packages:
    - shadow
    - shadow-securetty
    - sed
-   - vim-tiny
    - grep
    - gawk
    - kmod
    - util-linux-flock
    - kernel-image-bzimage
    - kernel-modules
-   - dracut
    - util-linux-findmnt
    - ostree-dracut
-   - rpm-ostree
    - supermin
-   - grub
-   - grub-efi
    - efivar
-   - efibootmgr
-   - shim
    - grub-bootconf
    - ldconfig
    - util-linux-umount
@@ -60,6 +56,25 @@ packages:
    - util-linux-setsid
    - util-linux-nologin
    - util-linux-fstrim
+   - util-linux-lsblk
+   - util-linux-wipefs
+   - util-linux-partx
+   - util-linux-sfdisk
+   - util-linux-su
+   - dbus-broker
+   - kbd
+   - keyutils
+   - libcap-ng
+   - procps
+   - coreos-installer
+   - coreos-installer-bootinfra
+   - diffutils
+   - gptfdisk
+   - bsdtar
+   - policycoreutils-setfiles
+   - e2fsprogs-resize2fs
+   - e2fsprogs-tune2fs
+   - 
 etc-group-members:
   # Add the docker group to /etc/group
   # https://github.com/coreos/fedora-coreos-tracker/issues/2
